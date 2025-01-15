@@ -668,6 +668,7 @@ def transactionStats = transactions.collect(new HashSet()) {
     transaction -> [type: transaction.type, amount: transaction.amount]
 }
 
+
 // Convert to a Map to summarize amounts by type
 def summarizedStats = transactionStats.groupBy { it.type }
         .collectEntries { type, trans -> [(type): trans*.amount.sum()]
